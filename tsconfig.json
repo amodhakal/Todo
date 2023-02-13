@@ -9,4 +9,5 @@
     "skipLibCheck": true,
     "strict": true,
   },
+  "exclude": ["src/client"]
 }
