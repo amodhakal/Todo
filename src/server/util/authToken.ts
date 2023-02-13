@@ -15,7 +15,7 @@ export default (req: Request, res: Response, next: NextFunction) => {
   jwt.verify(token, tokenVerifier, (err, userId) => {
     if (err) return res.json({ error: "Invalid Token" });
 
-    req.params.userId = userId as string;
+    req.body.userId = userId as string;
     next();
   });
 };
