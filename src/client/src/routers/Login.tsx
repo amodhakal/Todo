@@ -3,7 +3,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 export default () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -11,7 +11,10 @@ export default () => {
   return (
     <div className="w-screen h-screen flex justify-center items-center">
       <div className="w-full max-w-xs">
-        <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={login}>
+        <form
+          className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+          onSubmit={login}
+        >
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2">
               Enter your email:
@@ -21,7 +24,7 @@ export default () => {
               type="email"
               required={true}
               value={email}
-              onChange={e => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="mb-6">
@@ -34,7 +37,7 @@ export default () => {
               placeholder="***********"
               required={true}
               value={password}
-              onChange={e => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <div className="flex items-center justify-between">
@@ -59,11 +62,10 @@ export default () => {
   async function login(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const res = await axios.post("/api/auth/login", { email, password });
-    console.log(res)
 
     if (res.data.token) {
       document.cookie = `token=${res.data.token}; SameSite=Lax`;
-      navigate("/")
+      navigate("/");
     }
 
     if (res.data.error) alert(res.data.error);
