@@ -35,4 +35,4 @@ if (process.env.NODE_ENV === "PRODUCTION") {
     serverMessage = "On Production"
 }
 
-app.listen(PORT, () => serverMessage)
+app.listen(PORT, () => console.log(serverMessage))

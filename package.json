@@ -5,6 +5,8 @@
   "main": "src/server/index.ts",
   "scripts": {
     "start": "node dist/server/index.js",
+    "build": "yarn && yarn prisma:generate && yarn dev:ts && cd src/client && yarn && yarn build && cd ../../ && yarn start",
+    "prisma:generate": "npx prisma generate name --init",
     "dev:ts": "tsc",
     "dev:ts:run": "yarn dev:ts && yarn start",
     "dev:tsw": "tsc -w",
