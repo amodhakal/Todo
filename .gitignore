@@ -1,4 +1,5 @@
 db
 dist
 node_modules
+dockerfile
 .env
